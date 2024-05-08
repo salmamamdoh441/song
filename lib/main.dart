@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:song/controller/song_controller.dart';
 
 
 main(){
@@ -24,6 +25,21 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text( "MVC pattern with flutter"),),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(SongController.loading? 'loading' : SongController.getSongInfo().name),
+            ElevatedButton(onPressed: (){
+              setState(() {
+                SongController.loading =! SongController.loading;
+              });
+            }, child: Text("get data"))
+          ],
+        ),
+      ),
+    );
   }
 }
