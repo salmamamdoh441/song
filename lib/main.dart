@@ -1,18 +1,29 @@
-class SongModel {
-  String name, des, artist;
-  SongModel({required this.name, required this.des, required this.artist});
-  factory SongModel.fromjson(Map<String, dynamic> json) {
-    return SongModel(
-      name: json["name"],
-      des: json["des"],
-      artist: json["artist"],
+import 'package:flutter/material.dart';
+
+
+main(){
+  runApp(const SongApp());
+}
+class SongApp extends StatelessWidget {
+  const SongApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(),
     );
   }
-  Map<String, dynamic> tojson (){
-    return {
-      "name" : this.name,
-      "des" : this.des,
-      "artist" : this.artist,
-    };
+}
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
   }
 }
